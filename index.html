@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CL_handson</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+            <h3>Q1.</h3>
+            <pre>
+                function counter(){
+                    var counter = 0;
+                
+                    function IncreaseCounter() {
+                        return counter += 1;
+                    };
+                
+                    return IncreaseCounter;
+                }
+                
+                var counter = counter();
+                alert(counter());
+                alert(counter());
+                alert(counter());
+                alert(counter());
+
+                Output:
+                1
+                2
+                3
+                4
+            </pre>
+            <p>Answer: when browser opened it showing an alert on that alert is showing 1 afterr close it it showing 2 then 3 then 4 then close</p><hr>
+      
+            <h3>Q2.</h3>
+            <pre>
+                let count = 0;
+                (function () {
+                    if (count === 0) {
+                    let count = 1;
+                    console.log(count); // What is logged?
+                    }
+                    console.log(count); // What is logged?
+                })();
+
+                Output:
+                1
+                0
+            </pre>
+            <p>Answer: It will give first 1 and then 0 because of functional scope</p><hr>
+       
+            <h3>Q3</h3>
+            <pre>
+                for (var i = 0; i < 3; i++) {
+                    setTimeout(function log() {
+                      console.log(i); // What is logged?
+                    }, 1000);
+                  }
+
+                Output:
+                3
+                3
+                3
+            </pre>
+            <p>Answer: The answer is 3 3 3 because of after the loop complete the exicution the SetTimeout function run so the answer is  3 3 3 </p><hr>
+      
+            <h3>Q4. Write a code to calculate area of a rectangle using inner function. In this case outer function should accept parameter length and inner function should accept parameter breadth.</h3>
+            <pre>
+                function Len(L) {
+                    function Bre(B) {
+                        console.log(`Area Of Triangel is ${L* B}`)
+                    }
+                    Bre(15);
+                }
+                Len(10);
+            </pre>
+            <p>Answer:  lenght*breath</p><hr>
+        
+            <h3>Q5. Take a variable in outer function and create an inner function to increase the counter every time it is called</h3>
+            <pre>
+                var a = 10;
+                function outer(){
+                    function inner() {
+                        a++;
+                        console.log(a);
+                    }
+                    inner()
+                }
+                outer();
+                outer();
+                outer();
+                outer();
+            </pre>
+            <p>Answer: the variable we diffine out of the function in inner function we said add 1 and then call the function four times</p><hr>
+        
+            <h3>Q6.Print Output</h3>
+            <pre>
+                var a = 12;
+                (function () {
+                alert(a);
+                })();
+
+                Output:
+                12
+            </pre>
+            <p>Answer:globle scope is responsible</p><hr>
+        
+            <h3>Q7. Print Output</h3>
+            <pre>
+                var a = 10;
+                var x = (function () {
+                var a = 12;
+                    return function () {
+                        alert(a);
+                    };
+                })();
+                x();
+
+                Ouptut:
+                12
+            </pre>
+            <p>Answer: we call the return function in side of return function we said show the value of a so it take the value of from outer function and show </p><hr>
+        
+            <h3>Q8</h3>
+            <pre>
+                var globalVar = ""xyz"";
+
+                (function outerFunc(outerArg) {
+                    var outerVar = 'a';
+    
+                    (function innerFunc(innerArg) {
+                    var innerVar = 'b';
+    
+                    console.log(
+                        ""outerArg = "" + outerArg + ""\n"" +
+                        ""innerArg = "" + innerArg + ""\n"" +
+                        ""outerVar = "" + outerVar + ""\n"" +
+                        ""innerVar = "" + innerVar + ""\n"" +
+                        ""globalVar = "" + globalVar);
+    
+                    })(456);
+                })(123);
+
+                Output: Unexpected identifier
+            </pre>
+            <p>Answer: The Ans is Unexpeted Identifier because we have syntax error or you can say becuse of moretime using "" this symbols</p><hr>
+      
+</body>
+</html>
